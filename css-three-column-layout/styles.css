@@ -4,7 +4,7 @@
 
 .container {
   margin: auto;
-  max-width: 1000px;
+  max-width: 1050px;
 }
 
 .row {
@@ -37,6 +37,7 @@
 
 .header {
   margin-bottom: 0;
+  font-size: 16px;
 }
 
 .info {
@@ -46,16 +47,13 @@
   color: lightgray;
 }
 
-.first-section {
-  padding-left: 150px;
+.row-padding {
+  padding-left: 180px;
+  padding-right: 180px;
 }
 
-.second-section {
-  padding: 0 45px;
-}
-
-.third-section {
-  padding-right: 155px;
+.column-padding {
+  padding: 0 10px;
 }
 
 .circle {
