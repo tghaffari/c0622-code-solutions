@@ -60,7 +60,7 @@
   width: 100px;
 }
 
-.s2-padding {
+.s1-padding {
   padding-top: 50px;
   padding-bottom: 50px;
 }
@@ -81,7 +81,9 @@
 .p-formatting {
   line-height: 25px;
   color: white;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
+  padding-right: 33px;
+  font-size: 14px;
 }
 
 .overlay {
@@ -93,11 +95,12 @@
 }
 
 .hero-image-text {
+  position: absolute;
   color: white;
   font-family: Avenir, sans-serif;
   width: 500px;
-  padding-left: 50px;
-  padding-top: 30px;
+  left: 50px;
+  top: 30px;
 }
 
 .flex-start {
@@ -136,9 +139,13 @@
   margin-bottom: 5px;
 }
 
-.padding-s1-top {
-  padding-top: 30px;
+.s2-padding-top {
+  padding-top: 50px;
   padding-bottom: 30px;
+}
+
+.s2-padding-bottom {
+  padding-bottom: 50px;
 }
 
 .font3 {
@@ -147,12 +154,19 @@
   font-size: 14px;
 }
 
-.gray-border {
-  border-bottom: solid #e6e9ec;
+.table-size {
+  width: 100%;
+  text-align: center;
 }
 
-.grow {
-  flex-grow: 2;
+.table-formatting {
+  font-family: Avenir, sans-serif;
+  color: #777676;
+  line-height: 2.5;
+}
+
+.gray-border {
+  border-bottom: solid #e6e9ec;
 }
 
 .dark-gray-background {
@@ -217,4 +231,20 @@
 
 .right-side-padding {
   padding-right: 50px;
+}
+
+.text-decoration:hover {
+  color: darkblue;
+}
+
+.contact-button:hover {
+  background-color: rgb(78 76 76);
+  border-color: rgb(78 76 76);
+  cursor: grab;
+}
+
+.get-started-button:hover {
+  background-color: rgb(78 76 76);
+  border-color: rgb(78 76 76);
+  cursor: grab;
 }
