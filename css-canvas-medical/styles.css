@@ -7,7 +7,7 @@
   display: flex;
 }
 
-.column {
+.column-full {
   flex-basis: 100%;
   margin: 0;
 }
