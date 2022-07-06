@@ -7,7 +7,17 @@ var orderHistory = [
       orderNumber: '114-3941689-8772332'
     },
     deliveryDate: 'August 8, 2020',
-    product: [{ book: { title: 'Javascript for Impatient programmers', author: 'Rauschmayer, Dr. Axel', returnWindow: 'Sep 7, 2020' } }]
+    product: [
+      {
+        book:
+        {
+          title: 'Javascript for Impatient programmers',
+          author: 'Rauschmayer, Dr. Axel',
+          returnWindow: 'Sep 7, 2020',
+          price: 31.55
+        }
+      }
+    ]
   },
 
   {
@@ -18,7 +28,17 @@ var orderHistory = [
       orderNumber: '113-9984268-1280257'
     },
     deliveryDate: 'Jul 20, 2020',
-    product: [{ book: { title: 'The Timeless Way of Building', author: 'Alexander,Christopher', returnWindow: 'Aug 19, 2020' } }]
+    product: [
+      {
+        book:
+        {
+          title: 'The Timeless Way of Building',
+          author: 'Alexander,Christopher',
+          returnWindow: 'Aug 19, 2020',
+          price: 41.33
+        }
+      }
+    ]
   },
 
   {
@@ -29,8 +49,16 @@ var orderHistory = [
       orderNumber: '114-287557-95059409'
     },
     deliveryDate: 'Jul 7, 2020',
-    product: [{ other: { title: 'Gamecube Controller Adapter', returnWindow: 'Aug 5, 2020' } }]
-
+    product: [
+      {
+        other:
+        {
+          title: 'Gamecube Controller Adapter',
+          returnWindow: 'Aug 5, 2020',
+          price: 15.98
+        }
+      }
+    ]
   },
 
   {
@@ -42,8 +70,23 @@ var orderHistory = [
     },
     deliveryDate: 'Jul 5, 2020',
     product: [
-      { other: { title: 'Gamecube Controller- Super Smash Bros. Edition', returnWindow: 'Aug 4, 2020' } },
-      { book: { title: 'The Art of Sql', author: 'Faroult, Stephane', returnWindow: 'Aug 4, 2020' } }
+      {
+        other:
+        {
+          title: 'Gamecube Controller- Super Smash Bros. Edition',
+          returnWindow: 'Aug 4, 2020',
+          price: 94.95
+        }
+      },
+      {
+        book:
+        {
+          title: 'The Art of Sql',
+          author: 'Faroult, Stephane',
+          returnWindow: 'Aug 4, 2020',
+          price: 33.99
+        }
+      }
     ]
   }
 ];
