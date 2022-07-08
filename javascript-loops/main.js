@@ -38,14 +38,14 @@ function repeatWord(word, times) {
 }
 
 function logEachCharacter(string) {
-  for (let i = 0; i < string.length; i++) {
+  for (var i = 0; i < string.length; i++) {
     console.log('logEachString:', string[i]);
   }
 }
 
 function doubleAll(numbers) {
   var doubled = [];
-  for (let i = 0; i < numbers.length; i++) {
+  for (var i = 0; i < numbers.length; i++) {
     doubled.push(numbers[i] * 2);
   }
   return doubled;
@@ -53,7 +53,7 @@ function doubleAll(numbers) {
 
 function getKeys(object) {
   var keys = [];
-  for (const property in object) {
+  for (var property in object) {
     keys.push(property);
   }
   return keys;
@@ -61,7 +61,7 @@ function getKeys(object) {
 
 function getValues(object) {
   var values = [];
-  for (const property in object) {
+  for (var property in object) {
     var value = object[property];
     values.push(value);
   }
