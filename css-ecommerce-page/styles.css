@@ -1,0 +1,42 @@
+* {
+  font-family: "DM Sans", sans-serif;
+}
+
+.container {
+  margin: auto;
+  width: 1000px;
+}
+
+.row {
+  display: flex;
+}
+
+.column-full {
+  flex-basis: 100%;
+}
+
+.column-one-fifth {
+  flex-basis: calc(100% / 5);
+}
+
+.header {
+  text-align: center;
+}
+
+p {
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.gray-text {
+  color: rgb(203 201 201);
+}
+
+.price-background {
+  background-color: #fff2e7;
+}
+
+.free-people-image {
+  size: 100%;
+}
