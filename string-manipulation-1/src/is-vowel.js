@@ -6,10 +6,7 @@
 
 function isVowel(char) {
   var lowerChar = char.toLowerCase();
-  if (lowerChar === 'a') return true;
-  if (lowerChar === 'e') return true;
-  if (lowerChar === 'i') return true;
-  if (lowerChar === 'o') return true;
-  if (lowerChar === 'u') return true;
+  if (lowerChar === 'a' || lowerChar === 'e' || lowerChar === 'i' ||
+  lowerChar === 'o' || lowerChar === 'u') return true;
   else return false;
 }
