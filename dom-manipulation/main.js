@@ -16,25 +16,18 @@ var $clickCount = document.querySelector('.click-count');
 
 function numberOfClicks(event) {
   numClicks++;
-  $clickCount.textContent = 'Clicks:' + numClicks;
+  $clickCount.textContent = 'Clicks: ' + numClicks;
   if (numClicks < 4) {
     $hotButton.className = 'hot-button cold';
-  }
-  if (numClicks >= 4 && numClicks < 7) {
+  } else if (numClicks >= 4 && numClicks < 7) {
     $hotButton.className = 'hot-button cool';
-  }
-  if (numClicks >= 7 && numClicks < 10) {
+  } else if (numClicks >= 7 && numClicks < 10) {
     $hotButton.className = 'hot-button tepid';
-  }
-  if (numClicks >= 10 && numClicks < 13) {
+  } else if (numClicks >= 10 && numClicks < 13) {
     $hotButton.className = 'hot-button warm';
-  }
-  if (numClicks >= 13 && numClicks < 16) {
+  } else if (numClicks >= 13 && numClicks < 16) {
     $hotButton.className = 'hot-button hot';
-  }
-  if (numClicks >= 16) {
-    $hotButton.className = 'hot-button nuclear';
-  }
+  } else $hotButton.className = 'hot-button nuclear';
 }
 
 $hotButton.addEventListener('click', numberOfClicks);
