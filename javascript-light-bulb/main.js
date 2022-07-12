@@ -10,14 +10,16 @@
 
 var $circle = document.querySelector('.circle');
 var $container = document.querySelector('.container');
-
+var state = 'on';
 function onOff(event) {
-  if ($circle.className === 'circle on') {
+  if (state === 'on') {
     $circle.className = 'circle off';
     $container.className = 'container background-off';
+    state = 'off';
   } else {
     $circle.className = 'circle on';
     $container.className = 'container background-on';
+    state = 'on';
   }
 }
 
