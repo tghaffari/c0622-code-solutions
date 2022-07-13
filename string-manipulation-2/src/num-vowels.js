@@ -12,7 +12,9 @@ function numVowels(string) {
   var lowerString = string.toLowerCase();
   for (var i = 0; i < string.length; i++) {
     if (lowerString[i] === 'a' || lowerString[i] === 'e' || lowerString[i] === 'i' ||
-      lowerString[i] === 'o' || lowerString[i] === 'u') numVowels++;
+      lowerString[i] === 'o' || lowerString[i] === 'u') {
+      numVowels++;
+    }
   }
   return numVowels;
 }

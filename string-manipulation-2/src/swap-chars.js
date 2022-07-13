@@ -17,7 +17,9 @@ function swapChars(firstIndex, secondIndex, string) {
       newString += string[secondIndex];
     } else if (i === secondIndex) {
       newString += string[firstIndex];
-    } else newString += string[i];
+    } else {
+      newString += string[i];
+    }
   }
   return newString;
 }

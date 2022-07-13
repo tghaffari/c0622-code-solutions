@@ -17,6 +17,8 @@ function capitalizeWord(word) {
   var remainingLetters = word.slice(1);
   remainingLetters = remainingLetters.toLowerCase();
   var capWord = firstChar + remainingLetters;
-  if (capWord === 'Javascript') return 'JavaScript';
+  if (capWord === 'Javascript') {
+    return 'JavaScript';
+  }
   return capWord;
 }

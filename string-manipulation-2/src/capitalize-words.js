@@ -22,8 +22,11 @@ function capitalizeWords(string) {
     var remainingLetters = word.slice(1);
     remainingLetters = remainingLetters.toLowerCase();
     var capWord = firstChar + remainingLetters;
-    if (i !== (wordList.length - 1)) newString += capWord + ' ';
-    else newString += capWord;
+    if (i !== (wordList.length - 1)) {
+      newString += capWord + ' ';
+    } else {
+      newString += capWord;
+    }
   }
   return newString;
 }
