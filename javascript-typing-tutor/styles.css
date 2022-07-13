@@ -5,13 +5,14 @@
   width: 100%;
   justify-content: center;
   align-items: center;
+  font-family: monospace;
   font-size: 50px;
   letter-spacing: 2px;
-  padding: 20px 0;
 }
 
 .default {
-  border-bottom: 3px solid black;
+  text-decoration: underline 3px;
+  text-underline-position: under;
 }
 
 .correct {
@@ -20,5 +21,6 @@
 
 .wrong {
   color: red;
-  border-bottom: 3px solid red;
+  text-decoration: underline red 3px;
+  text-underline-position: under;
 }
