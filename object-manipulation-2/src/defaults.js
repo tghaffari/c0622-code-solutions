@@ -11,6 +11,7 @@ function defaults(target, source) {
     for (var prop in target) {
       if (key === prop) {
         match = true;
+        break;
       }
     }
     if (!match) {
