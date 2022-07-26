@@ -21,13 +21,6 @@ function reverseWords(string) {
     reverseWordList.push(reverseWord);
     reverseWord = '';
   }
-
-  for (var z = 0; z < reverseWordList.length; z++) {
-    if (z !== (reverseWordList.length - 1)) {
-      reverseString += reverseWordList[z] + ' ';
-    } else {
-      reverseString += reverseWordList[z];
-    }
-  }
+  reverseString = reverseWordList.join(' ');
   return reverseString;
 }
