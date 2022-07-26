@@ -14,10 +14,8 @@ function zip(first, second) {
   var pairsArray = [];
   var zippedArray = [];
 
-  if (first.length === second.length) {
+  if (first.length <= second.length) {
     var length = first.length;
-  } else if (first.length < second.length) {
-    length = first.length;
   } else if (second.length < first.length) {
     length = second.length;
   }

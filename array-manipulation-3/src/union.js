@@ -8,6 +8,7 @@
 // add it to the copied array.
 // Do this over the length of the second array.
 // Return the new array from the function
+
 function union(first, second) {
   var newArray = [];
   for (var i = 0; i < first.length; i++) {
@@ -15,14 +16,11 @@ function union(first, second) {
   }
 
   for (i = 0; i < second.length; i++) {
-    var match = true;
+    var match = false;
     for (var a = 0; a < newArray.length; a++) {
       if (second[i] === newArray[a]) {
         match = true;
         break;
-      }
-      if (second[i] !== newArray[a]) {
-        match = false;
       }
     }
     if (!match) {
