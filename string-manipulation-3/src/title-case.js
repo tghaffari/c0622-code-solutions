@@ -3,6 +3,7 @@
 // Create a new array of the inputted title
 // Go through each word in the array and capitalize the first letter of each word.
 // If the word is Javascript, make it JavaScript. Replace the old word with the correct word in the array.
+// If the word is Javascript:, make it JavaScript:. Replace the old word with the correct word in the array.
 // If the word is Api, make it API . Replace the old word with the correct word in the array.
 // if the word is not the first word in the title but contains an 'insignificant' word, make it lower case
 // and replace the old word with the new word in the array.
@@ -24,16 +25,10 @@ function titleCase(title) {
     var capWord = firstChar + remainingLetters;
     titleArray.splice(i, 1, capWord);
 
-    if (titleArray[i].includes('Javascript')) {
-      var jsArray = titleArray[i].split('');
-      for (var a = 0; a < jsArray.length; a++) {
-        if (jsArray[a] === 's') {
-          jsArray[a] = 'S';
-        }
-      }
-      var jsString = jsArray.join('');
-      titleArray.splice(i, 1, jsString);
-
+    if (titleArray[i] === 'Javascript') {
+      titleArray[i] = 'JavaScript';
+    } else if (titleArray[i] === 'Javascript:') {
+      titleArray[i] = 'JavaScript:';
     } else if (titleArray[i] === 'Api') {
       var newWord = 'API';
       titleArray.splice(i, 1, newWord);
