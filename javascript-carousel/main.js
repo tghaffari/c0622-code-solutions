@@ -6,6 +6,7 @@ var $faChevronRight = document.querySelector('.fa-chevron-right');
 var $img = document.querySelector('img');
 
 var index = 0;
+var intervalID = null;
 
 function updateImage() {
   if (index === 0) {
@@ -32,7 +33,7 @@ function updateImage() {
     $img.setAttribute('src', 'images/039.png');
     $img.setAttribute('alt', 'Jiggly Puff');
   }
-  for (var i = 0; i <= 4; i++) {
+  for (var i = 0; i < $faCircle.length; i++) {
     if (i === index) {
       $faCircle[i].className = ('fas fa-circle spacing');
     } else {
@@ -41,26 +42,17 @@ function updateImage() {
   }
 }
 
-function interval() {
-  index++;
-  if (index === 5) {
-    index = 0;
-  }
-  updateImage();
-}
-var intervalID = setInterval(interval, 3000);
-
-function rightChevronClick(event) {
+function moveForward(event) {
   clearInterval(intervalID);
   index++;
   if (index === 5) {
     index = 0;
   }
   updateImage();
-  intervalID = setInterval(interval, 3000);
+  intervalID = setInterval(moveForward, 3000);
 }
 
-$faChevronRight.addEventListener('click', rightChevronClick);
+$faChevronRight.addEventListener('click', moveForward);
 
 function leftChevronClick(event) {
   clearInterval(intervalID);
@@ -69,14 +61,13 @@ function leftChevronClick(event) {
     index = 4;
   }
   updateImage();
-  intervalID = setInterval(interval, 3000);
+  intervalID = setInterval(moveForward, 3000);
 }
 
 $faChevronLeft.addEventListener('click', leftChevronClick);
 
 function handleCircleClick(event) {
   clearInterval(intervalID);
-
   if (event.target === $faCircle[0]) {
     index = 0;
     updateImage();
@@ -93,7 +84,8 @@ function handleCircleClick(event) {
     index = 4;
     updateImage();
   }
-  intervalID = setInterval(interval, 3000);
+  intervalID = setInterval(moveForward, 3000);
 }
 
 $columnFull.addEventListener('click', handleCircleClick);
+intervalID = setInterval(moveForward, 3000);
