@@ -100,6 +100,8 @@ function cardGame(players, numberOfCards) {
   if (additionalWinnersArray.length !== 0) {
     var winnersList = additionalWinnersArray.join(',');
     console.log('There was a tie.', winnersList + ' and ' + winner.name + ' will play again');
+    additionalWinnersArray.push(winner.name);
+    cardGame(winnersList, numberOfCards);
 
   } else {
     console.log('The winner is', winner.name);
