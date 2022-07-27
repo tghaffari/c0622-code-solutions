@@ -1,0 +1,34 @@
+.justify-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.top-margin {
+  margin-top: 15px;
+}
+
+.spacing {
+  padding: 0 5px;
+}
+
+.sizing {
+  font-size: 25px;
+}
+
+img {
+  object-fit: contain;
+  max-width: 100%;
+}
+
+.fa-chevron-left:hover,
+.fa-chevron-right:hover,
+.fa-circle:hover {
+  cursor: pointer;
+}
