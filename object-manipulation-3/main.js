@@ -95,13 +95,14 @@ function cardGame(players, numberOfCards) {
 
   // Report the winners
   // Check if additionalWinnersArray is empty. If it is, there was only one winner.
-  // If it isn't, report the multiple winners.
+  // If it isn't, report that there was a tie and who tied.
+  // Have the people that tied play again to find the final winner.
 
   if (additionalWinnersArray.length !== 0) {
     var winnersList = additionalWinnersArray.join(',');
     console.log('There was a tie.', winnersList + ' and ' + winner.name + ' will play again');
     additionalWinnersArray.push(winner.name);
-    cardGame(winnersList, numberOfCards);
+    cardGame(additionalWinnersArray, numberOfCards);
 
   } else {
     console.log('The winner is', winner.name);
