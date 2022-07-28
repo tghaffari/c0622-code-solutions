@@ -8,33 +8,14 @@ var $img = document.querySelector('img');
 var index = 0;
 var intervalID = null;
 
+var imgSrcArray = ['images/001.png', 'images/004.png', 'images/007.png', 'images/025.png', 'images/039.png'];
+var imgAltArray = ['Bulbasaur', 'Charizard', 'Squirtle', 'Pikachu', 'Jiggly Puff'];
+
 function updateImage() {
-  if (index === 0) {
-    $img.setAttribute('src', 'images/001.png');
-    $img.setAttribute('alt', 'Bulbasaur');
-  } else if (index === 1) {
-    $img.setAttribute('src', 'images/004.png');
-    $img.setAttribute('alt', 'Charizard');
-  } else if (index === 2) {
-    $faCircle.className = ('far fa-circle spacing');
-    $faCircle[2].className = ('fas fa-circle spacing');
-    $img.setAttribute('src', 'images/007.png');
-    $img.setAttribute('alt', 'Squirtle');
-  } else if (index === 3) {
-    $faCircle[2].className = ('far fa-circle spacing');
-    $faCircle[3].className = ('fas fa-circle spacing');
-    $faCircle[4].className = ('far fa-circle spacing');
-    $img.setAttribute('src', 'images/025.png');
-    $img.setAttribute('alt', 'Pikachu');
-  } else if (index === 4) {
-    $faCircle[3].className = ('far fa-circle spacing');
-    $faCircle[4].className = ('fas fa-circle spacing');
-    $faCircle[0].className = ('far fa-circle spacing');
-    $img.setAttribute('src', 'images/039.png');
-    $img.setAttribute('alt', 'Jiggly Puff');
-  }
-  for (var i = 0; i < $faCircle.length; i++) {
-    if (i === index) {
+  for (var i = 0; i < imgSrcArray.length; i++) {
+    if (index === i) {
+      $img.setAttribute('src', imgSrcArray[i]);
+      $img.setAttribute('alt', imgAltArray[i]);
       $faCircle[i].className = ('fas fa-circle spacing');
     } else {
       $faCircle[i].className = ('far fa-circle spacing');
@@ -68,21 +49,11 @@ $faChevronLeft.addEventListener('click', leftChevronClick);
 
 function handleCircleClick(event) {
   clearInterval(intervalID);
-  if (event.target === $faCircle[0]) {
-    index = 0;
-    updateImage();
-  } else if (event.target === $faCircle[1]) {
-    index = 1;
-    updateImage();
-  } else if (event.target === $faCircle[2]) {
-    index = 2;
-    updateImage();
-  } else if (event.target === $faCircle[3]) {
-    index = 3;
-    updateImage();
-  } else if (event.target === $faCircle[4]) {
-    index = 4;
-    updateImage();
+  for (var i = 0; i < $faCircle.length; i++) {
+    if (event.target.getAttribute('data-id') === $faCircle[i].getAttribute('data-id')) {
+      index = i;
+      updateImage();
+    }
   }
   intervalID = setInterval(moveForward, 3000);
 }
