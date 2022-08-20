@@ -5,8 +5,6 @@ const app = express();
 let nextId = 1;
 const grades = {};
 
-// nextId++;
-
 app.get('/api/grades', (req, res) => {
   const gradeArray = [];
   for (const key in grades) {
