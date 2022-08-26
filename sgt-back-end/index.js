@@ -32,7 +32,7 @@ app.get('/api/grades', (req, res) => {
 app.post('/api/grades', (req, res) => {
   const name = (req.body.name);
   const course = (req.body.course);
-  const score = Number((req.body.score));
+  const score = (req.body.score);
 
   if (Object.keys(req.body).length !== 3) {
     res.status(400).json({ error: 'The grade object requires three properties: name, course, and score' });
@@ -42,8 +42,8 @@ app.post('/api/grades', (req, res) => {
     res.status(400).json({ error: 'Please include a course' });
   } else if (score === undefined) {
     res.status(400).json({ error: 'Please include a score' });
-  } else if (!Number.isInteger(score) || score < 0 || score > 100) {
-    res.status(400).json({ error: 'score must be a positive integer from 0-100.' });
+  } else if (!Number.isInteger(Number(score)) || Number(score) < 0 || Number(score) > 100) {
+    res.status(400).json({ error: 'score must be a positive integer from 0-100' });
   } else {
     const sql = `
     insert into "grades" ("name", "course", "score")
@@ -68,7 +68,7 @@ app.put('/api/grades/:gradeId', (req, res) => {
   const gradeId = Number(req.params.gradeId);
   const name = (req.body.name);
   const course = (req.body.course);
-  const score = Number(req.body.score);
+  const score = req.body.score;
   if (!Number.isInteger(gradeId) || gradeId < 0) {
     res.status(400).json({ error: 'gradeId must be a positive integer' });
   } else if (Object.keys(req.body).length !== 3) {
@@ -79,7 +79,7 @@ app.put('/api/grades/:gradeId', (req, res) => {
     res.status(400).json({ error: 'Please include a course' });
   } else if (score === undefined) {
     res.status(400).json({ error: 'Please include a score' });
-  } else if (!Number.isInteger(score) || score < 0 || score > 100) {
+  } else if (!Number.isInteger(Number(score)) || Number(score) < 0 || Number(score) > 100) {
     res.status(400).json({ error: 'score must be a positive integer from 0-100.' });
   } else {
     const sql = `
