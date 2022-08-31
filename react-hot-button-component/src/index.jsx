@@ -29,7 +29,6 @@ class CustomButton extends React.Component {
       return <button onClick={this.handleClick} style={{ backgroundColor: 'white' }}>Hot Button</button>;
     }
   }
-
 }
 
 const container = document.querySelector('#root');
