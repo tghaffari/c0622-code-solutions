@@ -52,7 +52,7 @@ export default class App extends React.Component {
     fetch('http://localhost:3000/api/todos', init)
       .then(response => response.json())
       .then(todosResponse => {
-        const todoArray = this.state.todos;
+        const todoArray = this.state.todos.slice(0);
         this.setState({ todos: todoArray.concat(todosResponse) });
       })
       .catch(err => console.error(err));
@@ -99,7 +99,7 @@ export default class App extends React.Component {
     fetch(`http://localhost:3000/api/todos/${todoId}`, init)
       .then(response => response.json())
       .then(todosResponse => {
-        const todoArray = this.state.todos;
+        const todoArray = this.state.todos.slice(0);
         todoArray.splice(index, 1, todosResponse);
         this.setState({ todos: todoArray });
       })
