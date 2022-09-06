@@ -1,0 +1,19 @@
+GET /api/grades/4 HTTP/1.1
+User-Agent: HTTPie/2.6.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Host: localhost:3000
+
+
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 104
+ETag: W/"68-CPZFUegCtkICkT9Ie9+X1gLyJR8"
+Date: Tue, 06 Sep 2022 19:26:54 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"gradeId":4,"name":"Tim Davis","course":"JavaScript","score":53,"createdAt":"2022-09-06T18:34:09.285Z"}

@@ -1,0 +1,19 @@
+GET /api/grades/244 HTTP/1.1
+User-Agent: HTTPie/2.6.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+Host: localhost:3000
+
+
+
+HTTP/1.1 404 Not Found
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 46
+ETag: W/"2e-1SqPd4hecVsOP7ALzO4AVAcqymQ"
+Date: Tue, 06 Sep 2022 19:25:21 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"cannot find grade with gradeId 244"}

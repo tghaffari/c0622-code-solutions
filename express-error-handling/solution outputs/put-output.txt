@@ -1,0 +1,21 @@
+PUT /api/grades/5 HTTP/1.1
+User-Agent: HTTPie/2.6.0
+Accept-Encoding: gzip, deflate
+Accept: application/json, */*;q=0.5
+Connection: keep-alive
+Content-Type: application/json
+Content-Length: 50
+Host: localhost:3000
+
+{"name": "Charlie", "course": "HTML", "score": 98}
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 96
+ETag: W/"60-v7tdUyCDzZjaC6Ru9Iqn8+EXxyo"
+Date: Tue, 06 Sep 2022 19:36:11 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"gradeId":5,"name":"Charlie","course":"HTML","score":98,"createdAt":"2022-09-06T19:29:30.485Z"}

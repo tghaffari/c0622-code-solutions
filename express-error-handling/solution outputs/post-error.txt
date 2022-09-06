@@ -1,0 +1,21 @@
+POST /api/grades HTTP/1.1
+User-Agent: HTTPie/2.6.0
+Accept-Encoding: gzip, deflate
+Accept: application/json, */*;q=0.5
+Connection: keep-alive
+Content-Type: application/json
+Content-Length: 36
+Host: localhost:3000
+
+{"name": "Ashely", "course": "HTML"}
+
+HTTP/1.1 400 Bad Request
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 54
+ETag: W/"36-IUimSrpvGub+8kKc0bLZkHGc0q8"
+Date: Tue, 06 Sep 2022 19:28:44 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"score must be an integer between 0 and 100"}
