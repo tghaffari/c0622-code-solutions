@@ -1,0 +1,22 @@
+POST /api/flashcards HTTP/1.1
+User-Agent: HTTPie/2.6.0
+Accept-Encoding: gzip, deflate
+Accept: application/json, */*;q=0.5
+Connection: keep-alive
+Content-Type: application/json
+X-Access-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM0LCJ1c2VybmFtZSI6IlRhcnJhIiwiaWF0IjoxNjYyNTc0ODA0fQ.G4Ihn7HeT4zxh-sB0naf8-kksVoMx1w8hpM6sjspgx0
+Content-Length: 76
+Host: localhost:3000
+
+{"question": "What does CSS stand for?", "answer": "Cascading Style Sheets"}
+
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 102
+ETag: W/"66-8gDZ9F+1mUf0c2nV1TrDK/mqSDo"
+Date: Wed, 07 Sep 2022 18:25:47 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"flashcardId":34,"userId":34,"question":"What does CSS stand for?","answer":"Cascading Style Sheets"}

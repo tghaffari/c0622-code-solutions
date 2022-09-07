@@ -1,0 +1,20 @@
+GET /api/flashcards HTTP/1.1
+User-Agent: HTTPie/2.6.0
+Accept-Encoding: gzip, deflate
+Accept: */*
+Connection: keep-alive
+X-Access-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiYXV0b2RpZGFjdCIsImlhdCI6MTYwODE1NjM4Nn0.w9mORRpJ6Twlwr1pMdILyNqOyz7Auh8_rzcRUsexvy8
+Host: localhost:3000
+
+
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 709
+ETag: W/"2c5-3AsIJPE2yHtnKjA5HvvMumA4xgI"
+Date: Wed, 07 Sep 2022 18:16:56 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+[{"flashcardId":1,"userId":1,"question":"What is a closure?","answer":"A closure is formed when a function retains access to variables in its lexical scope."},{"flashcardId":2,"userId":1,"question":"When is the value of `this` determined in JavaScript?","answer":"In JavaScript, the value of `this` is determined when a function is called; not when it is defined."},{"flashcardId":3,"userId":1,"question":"What is prototypal inheritance?","answer":"Prototypal inheritance is how objects delegate behavior to other objects."},{"flashcardId":4,"userId":1,"question":"What is the JavaScript event loop?","answer":"The event loop is what pushes asynchronous callbacks back onto the call stack when it is clear."}]
