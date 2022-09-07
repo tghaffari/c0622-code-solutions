@@ -1,0 +1,21 @@
+POST /api/auth/sign-up HTTP/1.1
+User-Agent: HTTPie/2.6.0
+Accept-Encoding: gzip, deflate
+Accept: application/json, */*;q=0.5
+Connection: keep-alive
+Content-Type: application/json
+Content-Length: 44
+Host: localhost:3000
+
+{"username": "Tarra", "password": "Hello12"}
+
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 71
+ETag: W/"47-pcmbj4O61TqUTdVqjcZHd4PMoTg"
+Date: Wed, 07 Sep 2022 18:18:43 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"userId":34,"username":"Tarra","createdAt":"2022-09-07T18:18:43.980Z"}

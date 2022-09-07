@@ -1,0 +1,22 @@
+POST /api/flashcards HTTP/1.1
+User-Agent: HTTPie/2.6.0
+Accept-Encoding: gzip, deflate
+Accept: application/json, */*;q=0.5
+Connection: keep-alive
+Content-Type: application/json
+X-Access-Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjM0LCJ1c2VybmFtZSI6IlRhcnJhIiwiaWF0IjoxNjYyNTc0ODA0fQ.G4Ihn7HeT4zxh-sB0naf8-kksVoMx1w8hpM6sjspgx0
+Content-Length: 80
+Host: localhost:3000
+
+{"question": "What does HTML stand for?", "answer": "Hypertext Markup Language"}
+
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 106
+ETag: W/"6a-vo7Sqmf6Dd30P6wNRO7Qj6blztE"
+Date: Wed, 07 Sep 2022 18:26:41 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"flashcardId":35,"userId":34,"question":"What does HTML stand for?","answer":"Hypertext Markup Language"}
