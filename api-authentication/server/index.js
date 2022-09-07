@@ -81,7 +81,6 @@ app.post('/api/auth/sign-in', (req, res, next) => {
       const userResult = result.rows[0];
 
       if (!userResult) {
-        res.sendStatus(401);
         throw new ClientError(401, 'invalid login');
       }
       const hashedPassword = userResult.hashedPassword;
@@ -98,16 +97,14 @@ app.post('/api/auth/sign-in', (req, res, next) => {
             const token = jwt.sign(payload, process.env.TOKEN_SECRET);
             res.status(200).json({ payload, token });
           } else {
-            res.sendStatus(401);
             throw new ClientError(401, 'invalid login');
           }
         })
         .catch(err => {
-          console.error(err);
+          next(err);
         });
     })
-    .catch(err => console.error(err));
-
+    .catch(err => next(err));
 });
 
 app.use(errorMiddleware);

@@ -1,0 +1,21 @@
+POST /api/auth/sign-in HTTP/1.1
+User-Agent: HTTPie/2.6.0
+Accept-Encoding: gzip, deflate
+Accept: application/json, */*;q=0.5
+Connection: keep-alive
+Content-Type: application/json
+Content-Length: 46
+Host: localhost:3000
+
+{"username": "admin", "password": "password1"}
+
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 199
+ETag: W/"c7-J2QNGu2+6GtRCrIUPAXjRb8GRe4"
+Date: Wed, 07 Sep 2022 00:59:29 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"payload":{"userId":1,"username":"admin"},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsInVzZXJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2NjI1MTIzNjl9.AGDGpzFt0f80dXdsxc0xImU0G5QGbbDstrdzH4ClBPY"}
