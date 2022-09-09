@@ -1,0 +1,172 @@
+When the app first loads, the browser sends a get request to the backend and the
+ server delivers the html document that you see on the screen. The FontAwesome
+ and Bootstrap stylesheets are loaded. There’s a main.js script on the bottom,
+ but because we haven’t run npm run build, there’s no main.js file. Instead, the
+ dev-middleware.js file intercepts and serves the same function.
+
+Within index.jsx, React, ReactDOM, and App are imported from their respective
+packages and file. The div with the id root is query selected and is used to
+create a react root. Then, App is started by being mounted to root.
+
+App is called with the new operator and that first calls its constructor method.
+An initial state is established with the properties “user”, “isAuthorizing”, and
+“route” with the respective values “null”, “true”, and the “parseRoute” function
+with the argument “window.location.hash”. The role of route is to keep track of
+what page we’re on. This causes the parseRoute function to run. If the hash starts
+with a #, it’s chopped off. The string is split into a path and queryString at
+the ?. queryString is passed through the URLSearchParams function to obtain params.
+An object with the value and property path and params is returned and assigned as
+the value for “this.state.route”.
+
+Next, the render method is called. Because “this.state.isAuthorizing” is true,
+the method returns null and exits the method code block. This then prompts the
+componentDidMount method to execute. It’s listening for hash changes in case you
+switch views. It also looks to local storage to extract your saved token. If
+there is a token saved in local storage, it assigns the decoded token value to
+user. If there’s no token, user is assigned the value null. The values of
+this.state are being updated to “user”:”user” and “isAuthorizing”: “false”.
+This in turn triggers a re-render.
+
+Now that “isAuthorizing” is false, something else happens within the render
+method. First, “user” and “route” are destructured from “this.state”. The
+methods “handleSignIn” and “handleSignOut” are being destructured from this and
+assigned to variables of the same name. Then, “user”, “route”, “handleSignIn”,
+and “handleSignOut” are being assigned to the variable contextValue so they can
+later be passed as a prop. Return expression →
+    “AppContext” serves as the provider to pass it’s props (“context value”) to
+    the tree below it. That way, any component can read it. In app-context.js,
+    “AppContext” was set up as a context by assigning it the value of the return
+    of calling the “createContext” method of the “React” object. Next, the Navbar
+    component is being called to be rendered. This renders and returns the navbar
+    at the top of the page. Because initially no one is signed in,“user” = “null”
+    and the nav bar shows a sign in button and a sign up link. If you click on
+    the button or the link, this triggers a hash change which then triggers
+    view swapping (will be discussed later).
+
+    Next, the PageContainer component is being called for rendering. This adds
+    some styling and to the page and calls its child, the renderPage method.
+    That looks at the path in this.state.route and determines which page to show.
+    Right now, because no one is signed in, the path is the sign-in page. Which
+    calls the authPage class (to be discussed later) However, let’s assume that
+    we don’t have an account yet. So, let’s click on the sign-up anchor in the
+    navbar and look at what happens.
+
+Clicking on sign-up triggers the hashchange event listener and updates the value
+of “this.state.route.path” to “sign-up”. Clicking on the  “Sign in instead”
+anchor at the bottom of the page would do the same thing. That triggers a
+re-render which calls AppContext.Provider, and Navbar (already discussed above),
+and PageContainer with a child which calls the renderPage method. So, let’s go
+back to the renderPage method. The path is currently sign-up so that calls the
+Auth component for rendering. Because “user” is still null, the welcome message
+says: “Create an account to get started!”. Next, the surrounding parts of the
+form is rendered (the header and message and form container). While rendering
+the form, the AuthForm component is called for rendering with three props.
+Because the path is “sign-up” this triggers the sign-up form to be rendered.
+Every time something is typed into the username input field or password input
+field, this triggers an onChange event handler callback function “handleChange”
+and the value of this.state.username and this.state.password are updated and the
+page and re-rendered accordingly. When you’re done typing in your username and
+password, you click the register button and this triggers the onSubmit event
+which calls the handleSubmit function. handleSubmit uses the value of “action”
+(which was passed as a prop in auth.jsx) to send a fetch post request to the
+server. The server deconstructs the username and password from the request body.
+Since they were both included, it doesn’t throw an error and skips to the next
+part of the code block. The password is hashed using argon 2 and the hashed
+password and username are sent to the database to be stored. The database assigns
+a userId and createdAt column for the entry. Assuming the data was stored in the
+databases successfully, the database sends back a successful status and returns
+the userId, username, and createdAt values for the recorded entry. If the
+inputted username already exists, the server responds back with an error that
+the username already exists. Then (going back to auth-form.jsx), the response
+and json parsed and because action is now ‘sign-up’, the value of
+“window.location.hash” is changed to “sign-in”.
+
+This triggers the hash change event listener and reassigns the value of
+“this.state.route”.Then, this triggers a re-render which renders the the
+following react elements: “AppContext.Provider”,”Navbar”, and  “PageContainer”.
+Because “user” is still “null”, the navbar is rendered with the sign in button
+and sign up link. Then we go to “pageContainer” and the page is set up with its
+child, the return of calling the RenderPage method. So, since “path” is ‘sign-in”
+that triggers "Auth". The form renders to show the sign-in message and "AuthForm"
+is called and action is passed as a prop with the value “sign-in”. Then,
+the sign-in form is rendered with a link at the bottom that says register now
+(clicking on it will trigger a hash change event that will switch the view back
+to the sign up page).  So now, you can log in. Every time something is typed into
+the username or password input fields, this triggers the onChange event listener
+and calls its callback function “handleChange”. This updates the values of
+“this.state.username” and “this.state.password” and causes the page to re-render
+accordingly. Once you have successfully typed in your username and password, you
+click on log-in and that triggers the onSubmit event listener and calls its
+callback function “handleSubmit”. Using the value of action (‘sign-in’), a fetch
+post request is sent to the server. We query the database for the inputted
+username and associated hashedPassword. Using ‘argon2.verify’, we check that the
+inputted password matches the hashedPassword for the username in question. If
+they don’t match, the client receives an error. If they do match, a token is
+assigned and returned along with the user’s userId and username. Since we were
+given a user and token from the result, this calls the onSignIn method which in
+turn calls the “handleSignIn” method (remember that “onSignIn” was passed as a
+prop to “AuthForm” with the value of “handleSignIn”). The token is saved in local
+storage and this.state.user is set to the resulting user sent back from the database.
+
+This again triggers a re-render, which renders the following react elements:
+“AppContext.Provider”,”Navbar”, and  “PageContainer”. Now, because “user” is no
+longer “null”, the navbar is rendered with a sign-out button. Then we go to
+“pageContainer” and the page is set up with its child, the return of calling the
+RenderPage method. Because path is still sign-in, this calls the React element
+“Auth”. Because “user” now has a truthy value, the if statement code block runs.
+his triggers Redirect with the prop to with the value of an empty string.
+Redirect sets “window.location” to # which in turn is detected by the hash
+change event listener and triggers its call back function to change the value of
+ this.state.route. Which again triggers another re-render. User still has a
+ truthy value assigned to it so the navbar is rendered with a sign-out button.
+ “PageContainer” is rendered the same way it always is. We reach its child,
+ calling the “renderPage” method. Because the value of “path” is an empty string,
+ the react element type “Home” is returned. Because “user” has a value, the if
+ statement code block doesn’t run. Instead, the react elements are rendered to
+ show the gif on the screen.
+
+If you refresh the page after you’ve signed in, you stay signed in. Let’s
+explore what happening. When you refresh the page, all your files are reloaded
+by the browser. And remember that “App” is called from within index.jsx.
+"This.state" is assigned the properties ‘user’, isAuthorizing’, and ‘route’ with
+the respective values ‘null’, ‘true’, and the return of the parseRoute method
+being called with window.location.hash as the argument. Next, the render method
+runs. Because this.state.isAuthorizing is true, null is returned from the
+function and then componentDidMount runs. The jwt token is obtained from local
+storage and that’s used with the jwtDecode function to get the associated user.
+The value of this.state.user is updated and isAuthorizing is now false. This in
+turn triggers a re-render of the following react elements:
+“AppContext.Provider”,”Navbar”, and  “PageContainer”. Because ‘user’ is not
+null, the navbar is rendered with a sign out button. “PageContainer” sets up
+the page styling boundaries and calls the “renderPage” method within its
+children. Because the value of path is an empty string, that calls “Home” to
+be rendered. Within “Home”, the iframe with the gif is rendered.
+
+If you want to sign out, you click the sign-out button at the top right of the
+navbar. This triggers the onClick event listener and calls “handleSignOut”. The
+token is removed from local storage and “this.state.user” is set to “null”. This
+triggers a re-render. “Navbar” is called to be rendered and because “user” is
+“null” the navbar is rendered with the sign-in and sign-up buttons. Next,
+“PageContainer” is called to be rendered and that sets up the page container and
+calls the “renderPage” method. Because “path” is still an empty string, that
+calls “Home” to be rendered. Since this.context.user is a falsy value, the if
+statement evaluates to true and that calls “Redirect” to be called with the
+prop “to” with the value “sign-in”. The value of “window.location” gets replaced
+with “sign-in”. This triggers the hash change event listener which then reassigns
+the value of this.state.route to “sign-in”. Then this triggers a re-render.
+Again, “Navbar” is called to be rendered and because “user” is “null” the navbar
+is rendered with the sign-in and sign-up buttons. Next, “PageContainer” is
+called to be rendered and that sets up the page container and calls the
+“renderPage” method. Now, the value of path is “sign-in” and that calls “Auth”
+to be rendered. Because “user” is null, the if statement doesn’t run and instead
+the header and sign-in message are rendered. Then, “AuthForm” is called to be
+rendered and the sign-in form is rendered.
+
+
+If you try to navigate to a url that doesn’t exist, when “RenderPage” is called,
+this calls “NotFound” to be rendered. This renders a page that says the page
+that does not exist and a link to Return Home. If you click on the link, this
+creates a hash change which eventually sets “this.state.route” to an empty
+string. And if you weren’t already signed in, it would redirect you to the
+sign-in page with the previously discussed pathways and if you were signed in,
+it would take you back to the home page (the gif).
