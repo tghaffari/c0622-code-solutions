@@ -11,10 +11,6 @@
   flex-basis: auto;
 }
 
-.column-third {
-  flex-basis: (100%/3);
-}
-
 .column-full {
   width: 100%;
 }
