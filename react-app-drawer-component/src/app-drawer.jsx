@@ -19,24 +19,20 @@ export default class HandleNavigation extends React.Component {
   }
 
   render() {
-    if (!this.state.menuBarsClicked) {
-      return (
-        <i onClick={this.handleMenuBarsClick}className="fa-solid fa-bars bars"></i>
-      );
-    } else if (this.state.menuBarsClicked) {
-      return (
-        <div className="flex-container">
-          <div onClick={this.closeMenu}className="background"></div>
-          <div className="menu-background">
-            <h1 className="menu-header">Menu</h1>
-            <div onClick={this.closeMenu}>
-              <p className="menu-text">About</p>
-              <p className="menu-text"> Get Started</p>
-              <p className="menu-text">Sign In</p>
-            </div>
+    const view = this.state.menuBarsClicked ? 'view' : 'hidden';
+    return (
+      <div className="flex-container">
+        <i onClick={this.handleMenuBarsClick} className= "fa-solid fa-bars bars"></i>
+        <div onClick={this.closeMenu}className={`background ${view}`}></div>
+        <div className={`menu-background ${view}`}>
+          <h1 className="menu-header">Menu</h1>
+          <div onClick={this.closeMenu}>
+            <p className="menu-text">About</p>
+            <p className="menu-text"> Get Started</p>
+            <p className="menu-text">Sign In</p>
           </div>
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
