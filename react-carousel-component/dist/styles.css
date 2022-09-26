@@ -1,0 +1,49 @@
+.flex-container {
+  margin: auto;
+  width: 900px;
+}
+
+.row {
+  display: flex;
+}
+
+.column-flex {
+  flex-basis: auto;
+}
+
+.column-full {
+  width: 100%;
+}
+
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.sizing {
+  font-size: 25px;
+}
+
+.img {
+  object-fit: contain;
+  width: 400px;
+  height: 400px;
+}
+
+.spacing {
+  padding: 0 5px;
+  margin-top: 10px;
+}
+
+.fa-chevron-left:hover,
+.fa-chevron-right:hover,
+.fa-circle:hover {
+  cursor: pointer;
+}
